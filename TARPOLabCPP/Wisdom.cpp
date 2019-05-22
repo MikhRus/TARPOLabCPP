@@ -22,15 +22,15 @@ WisdomFactory::WisdomFactory(int m) : mark(m)
 Wisdom* WisdomFactory::Make(int key)
 {
 	// Указатель, фиксирующий созданную фигуру
-	Wisdom* f = nullptr;
+	Wisdom* w = nullptr;
 	// Формирование указателя для обхода
 	WisdomFactory* tmp = top;
 
 	// Обход фабрик в стеке до той, у которой ключ совпадает с искомым
 	while (tmp) {
-		f = tmp->Create(key);
+		w = tmp->Create(key);
 		// При создании фигуры обход завершается
-		if (f) return f;
+		if (w) return w;
 		tmp = tmp->next;
 	}
 	return nullptr;
